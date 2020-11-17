@@ -24,6 +24,8 @@ A new  preventative vaccine (covid91) is under test in clinical trials. Given th
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method. Discuss what data manipulations may be needed for example subsetting or other binning procedures and what sort of graphical displays and inferential tools will be used!-->
 
+We are using cat~cat 
+
 # Results
 
 <!--Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.!-->
@@ -42,6 +44,34 @@ barchartGC(~infected+treatment,data=dataF,main="gals",type="percent")
 barchartGC(~infected+treatment,data=dataM,main="guys",type="percent")
 barchartGC(~infected+treatment,data=dataQ,main="gay",type="percent")
 barchartGC(~infected+treatment,data=dataD,main="DrugUser",type="percent")
+```
+The gals chart shows that the drug had an effect in protecting gals from getting COVID.
+
+The guys chart shows that the drug was not effective for the guys.
+
+The gays chart shows that the drug did not work for them either.
+
+## Numerical Summary
+
+```{r}
+tableF=xtabs(~infected+treatment,data=dataF)
+print(tableF)
+fisher.test(tableF)
+
+
+tableM=xtabs(~infected+treatment,data=dataM)
+print(tableM)
+fisher.test(tableM)
+
+
+tableQ=xtabs(~infected+treatment,data=dataQ)
+print(tableQ)
+fisher.test(tableQ)
+
+
+tableD=xtabs(~infected+treatment,data=dataD)
+print(tableD)
+fisher.test(tableD)
 ```
 
 
