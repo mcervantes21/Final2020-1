@@ -18,7 +18,7 @@ FinalData <- OldData %>% mutate(infected = recode(infected, aids = "covid", none
 
 <!--In this section you explain what you are trying to show.  Where did the data come from?  What is the research or other question you are trying to answer?.  If you skimp in this section expect to be marked down in your grade. Paint a picture of the project a couple of paragraphs is expected!-->
 
-A new  preventative vaccine (covid91) is under test in clinical trials. Given the nature of this vaccine it is suspected that the drug may exhibit different effectiveness across the variety of subpopulations tracked. Consider population subgroups by gender( guys and gals), drug use, and sexual orientation. Write a complete report that separately considers this drug for each subgroup and your recommendations as to whether people in the subgroup should take the vaccine.
+A new  preventative vaccine (covid19) is under test in clinical trials. Given the nature of this vaccine it is suspected that the drug may exhibit different effectiveness across the variety of subpopulations tracked. Consider population subgroups by gender( guys and gals), drug use, and sexual orientation. Write a complete report that separately considers this drug for each subgroup and your recommendations as to whether people in the subgroup should take the vaccine.
 
 # Methods
 
@@ -37,42 +37,97 @@ dataQ=filter(FinalData,LGBTQ=="gay")
 dataD=filter(FinalData,DrugUser=="yes")
 ```
 
-## Graphical Summary   
 
+# Gals
+
+## Graphical Summary for Gals
 ```{r}
 barchartGC(~infected+treatment,data=dataF,main="gals",type="percent")
-barchartGC(~infected+treatment,data=dataM,main="guys",type="percent")
-barchartGC(~infected+treatment,data=dataQ,main="gay",type="percent")
-barchartGC(~infected+treatment,data=dataD,main="DrugUser",type="percent")
 ```
+
 The gals chart shows that the drug had an effect in protecting gals from getting COVID.
 
-The guys chart shows that the drug was not effective for the guys.
 
-The gays chart shows that the drug did not work for them either.
-
-## Numerical Summary
-
+## Numerical Summary for Gals
 ```{r}
 tableF=xtabs(~infected+treatment,data=dataF)
 print(tableF)
+```
+
+
+## Inferential Result for Gals
+```{r}
 fisher.test(tableF)
+```
 
 
+# Guys 
+
+## Graphical Summary for Guys
+```{r}
+barchartGC(~infected+treatment,data=dataM,main="guys",type="percent")
+```
+
+The guys chart shows that the drug was not effective for the guys.
+
+## Numerical Summary for Guys
+```{r}
 tableM=xtabs(~infected+treatment,data=dataM)
 print(tableM)
+```
+
+
+## Inferential Result for Guys
+```{r}
 fisher.test(tableM)
+```
+
+# Drug Users
+
+## Graphical Result for Drug Users 
+```{r}
+barchartGC(~infected+treatment,data=dataD,main="DrugUser",type="percent")
+```
 
 
-tableQ=xtabs(~infected+treatment,data=dataQ)
-print(tableQ)
-fisher.test(tableQ)
 
-
+## Numerical Summary for Drug Users
+```{r}
 tableD=xtabs(~infected+treatment,data=dataD)
 print(tableD)
+```
+
+
+
+## Inferential Result for Drug Users
+```{r}
 fisher.test(tableD)
 ```
+
+
+
+# LGBTQ
+
+## Graphical Result for LGBTQ
+```{r}
+barchartGC(~infected+treatment,data=dataQ,main="gay",type="percent")
+```
+
+The gays chart shows that the drug did not work for them either.
+
+## Numerical Summary for LGBTQ
+```{r}
+tableQ=xtabs(~infected+treatment,data=dataQ)
+print(tableQ)
+```
+
+
+
+## Inferential Result for LGBTQ
+```{r}
+fisher.test(tableQ)
+```
+
 
 
 # Discussion and Conclusion
