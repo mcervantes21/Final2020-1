@@ -1,5 +1,5 @@
 ---
-title: "Covid91 vaccine study Final2020"
+title: "Covid19 vaccine study Final2020"
 author: "Michelle Cervantes"
 date: "October 23, 2020"
 output: html_document
@@ -24,7 +24,7 @@ A new  preventative vaccine (covid19) is under test in clinical trials. Given th
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method. Discuss what data manipulations may be needed for example subsetting or other binning procedures and what sort of graphical displays and inferential tools will be used!-->
 
-We are using cat~cat 
+We are using cat~cat to determine how effective this drug is against catching COVID in different types of groups (Gal, Guy, LGBTQ and DrugUser).
 
 # Results
 
@@ -45,21 +45,22 @@ dataD=filter(FinalData,DrugUser=="yes")
 barchartGC(~infected+treatment,data=dataF,main="gals",type="percent")
 ```
 
-The gals chart shows that the drug had an effect in protecting gals from getting COVID.
-
-
+This gals chart shows us that the drug was more effective in protecting gals from getting COVID versus the placebo. The percentage who took the drug and got COVID is around 30%, however it is still very low compared to the gals who took the placebo and got infected which is a little over 60%.
+  
 ## Numerical Summary for Gals
 ```{r}
 tableF=xtabs(~infected+treatment,data=dataF)
 print(tableF)
 ```
 
-
+This numerical summary tells us that the amount of gals who got COVID and did not take the drug is about half as large versus the gals who took the drug.
+  
 ## Inferential Result for Gals
 ```{r}
 fisher.test(tableF)
 ```
 
+The p-value tells us that there is a very small probability of obtaining a result that is equal to the data observed (< 0.00000000000000022). Now the odds ratio is basically indicating that if you are a gal and you take this drug, you are almost 0.5 times likely to catch COVID. I think that this drug can be beneficial to gals. 
 
 # Guys 
 
@@ -68,7 +69,7 @@ fisher.test(tableF)
 barchartGC(~infected+treatment,data=dataM,main="guys",type="percent")
 ```
 
-The guys chart shows that the drug was not effective for the guys.
+The guys chart shows that the drug was not effective at all in protecting the guys from catching COVID at all. About 55% of the guys who took the drug got COVID and about 40% who took the placebo got COVID as well. The ones who took the drug however received COVID more easily versus the ones who did not take the drug.
 
 ## Numerical Summary for Guys
 ```{r}
@@ -76,12 +77,15 @@ tableM=xtabs(~infected+treatment,data=dataM)
 print(tableM)
 ```
 
+The numerical summary shows us that the two groups (Guys who took the drug and Guys who took the placebo) are almost close in numerical value. However, if you are a guy that took the drug instead of the placebo you are definitely more than likely to catch COVID. I think if you took the placebo instead of the drug you still have a small chance of not catching COVID.
 
 ## Inferential Result for Guys
 ```{r}
 fisher.test(tableM)
 ```
 
+The p-value tells us the probability of obtaining a result that is equal to the data observed is 0.0005801 which is a bit higher than the probability we gathered for the gals data. The odds ratio then tells us that if you are a guy you are nearly 1.5 times more likely to catch COVID if you take this drug. This drug is definitely a bad drug to give to guys.
+  
 # Drug Users
 
 ## Graphical Result for Drug Users 
@@ -89,22 +93,22 @@ fisher.test(tableM)
 barchartGC(~infected+treatment,data=dataD,main="DrugUser",type="percent")
 ```
 
-
-
+This DrugUser chart shows us that about 30% of the people who took the drug got COVID and a little more thank 60% who took the placebo got COVID. Right off the bat we can see that the placebo users got more infected than those who took the drug.
+  
 ## Numerical Summary for Drug Users
 ```{r}
 tableD=xtabs(~infected+treatment,data=dataD)
 print(tableD)
 ```
 
-
-
+The numerical summary for DrugUser tells us that the DrugUsers who took the drug and got COVID was exactly twice as less than the DrugUsers who took the placebo.
+  
 ## Inferential Result for Drug Users
 ```{r}
 fisher.test(tableD)
 ```
 
-
+The p-value tells us that there is a small probability of obtaining a result that is equal to the data observed (0.002273) which is a bit higher than the probability we gathered for gals and guys. The odds ratio tells us that if you are a DrugUser and take this drug, you are .545 times likely to catch COVID. I think this drug is beneficial to DrugUsers to protect them against COVID.
 
 # LGBTQ
 
@@ -113,23 +117,25 @@ fisher.test(tableD)
 barchartGC(~infected+treatment,data=dataQ,main="gay",type="percent")
 ```
 
-The gays chart shows that the drug did not work for them either.
-
+The gays chart shows that the drug was not beneficial at all in protecting them against COVID. A little more that 60% who took the drug got infected with COVID and aboout 30% of those who took the placebo got COVID. The LGBTQ who took the drug were twice as likely to get COVID versus those who took the placebo.
+  
 ## Numerical Summary for LGBTQ
 ```{r}
 tableQ=xtabs(~infected+treatment,data=dataQ)
 print(tableQ)
 ```
 
-
+The numerical summary for LGBTQ shows us that the placebo takers who got infected with COVID were way less than the doubled amount of those who took the drug. 
 
 ## Inferential Result for LGBTQ
 ```{r}
 fisher.test(tableQ)
 ```
 
-
+The fishers test tells us that the odds of getting COVID, if you take this drug and are in the LGBTQ Community are about 2 and a half times greater versus not taking the drug and taking the placebo. Your odds of getting COVID are greater if you take this drug and are part of the LGBTQ community. This is definitely a bad drug to give to the LGBTQ. The p-value, 0.000005741 then tells us that there is a small probability of obtaining a result that is equal to the data observed.
 
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
+
+If you're
