@@ -45,7 +45,7 @@ dataD=filter(FinalData,DrugUser=="yes")
 barchartGC(~infected+treatment,data=dataF,main="gals",type="percent")
 ```
 
-This gals chart shows us that the drug was more effective in protecting gals from getting COVID versus the placebo. The percentage who took the drug and got COVID is around 30%, however it is still very low compared to the gals who took the placebo and got infected which is a little over 60%.
+This gals chart shows us that the drug was more effective in protecting gals from getting COVID versus the placebo. The percentage who took the drug and got COVID is around 30%, however, it is still very low compared to the gals who took the placebo and got infected which is a little over 60%.
   
 ## Numerical Summary for Gals
 ```{r}
@@ -60,7 +60,7 @@ This numerical summary tells us that the amount of gals who got COVID and did no
 fisher.test(tableF)
 ```
 
-The p-value tells us that there is a very small probability of obtaining a result that is equal to the data observed (< 0.00000000000000022). Now the odds ratio is basically indicating that if you are a gal and you take this drug, you are almost 0.5 times likely to catch COVID. I think that this drug can be beneficial to gals. 
+The p-value tells us that there is a very small probability of obtaining a result that is equal to the data observed (< 0.00000000000000022). Now the odds ratio is indicating that if you are a gal and you take this drug, you are almost 0.5 times likely to catch COVID. I think that this drug can be beneficial to gals. 
 
 # Guys 
 
@@ -69,7 +69,7 @@ The p-value tells us that there is a very small probability of obtaining a resul
 barchartGC(~infected+treatment,data=dataM,main="guys",type="percent")
 ```
 
-The guys chart shows that the drug was not effective at all in protecting the guys from catching COVID at all. About 55% of the guys who took the drug got COVID and about 40% who took the placebo got COVID as well. The ones who took the drug however received COVID more easily versus the ones who did not take the drug.
+The guys chart shows that the drug was not effective at all in protecting the guys from catching COVID at all. About 55% of the guys who took the drug got COVID and about 40% who took the placebo got COVID as well. The ones who took the drug, however, received COVID more easily versus the ones who did not take the drug.
 
 ## Numerical Summary for Guys
 ```{r}
@@ -93,7 +93,7 @@ The p-value tells us the probability of obtaining a result that is equal to the 
 barchartGC(~infected+treatment,data=dataD,main="DrugUser",type="percent")
 ```
 
-This DrugUser chart shows us that about 30% of the people who took the drug got COVID and a little more thank 60% who took the placebo got COVID. Right off the bat we can see that the placebo users got more infected than those who took the drug.
+This DrugUser chart shows us that about 30% of the people who took the drug got COVID and a little more than 60% who took the placebo got COVID. Right off the bat, we can see that the placebo users got more infected than those who took the drug.
   
 ## Numerical Summary for Drug Users
 ```{r}
@@ -108,7 +108,7 @@ The numerical summary for DrugUser tells us that the DrugUsers who took the drug
 fisher.test(tableD)
 ```
 
-The p-value tells us that there is a small probability of obtaining a result that is equal to the data observed (0.002273) which is a bit higher than the probability we gathered for gals and guys. The odds ratio tells us that if you are a DrugUser and take this drug, you are .545 times likely to catch COVID. I think this drug is beneficial to DrugUsers to protect them against COVID.
+The p-value tells us that there is a small probability of obtaining a result that is equal to the data observed (0.002273) which is a bit higher than the probability result we gathered for gals and guys. The odds ratio tells us that if you are a DrugUser and take this drug, you are .545 times likely to catch COVID. I think this drug is beneficial to DrugUsers to protect them against COVID.
 
 # LGBTQ
 
@@ -117,7 +117,7 @@ The p-value tells us that there is a small probability of obtaining a result tha
 barchartGC(~infected+treatment,data=dataQ,main="gay",type="percent")
 ```
 
-The gays chart shows that the drug was not beneficial at all in protecting them against COVID. A little more that 60% who took the drug got infected with COVID and aboout 30% of those who took the placebo got COVID. The LGBTQ who took the drug were twice as likely to get COVID versus those who took the placebo.
+The gay's chart shows that the drug was not beneficial at all in protecting them against COVID. A little more than 60% who took the drug got infected with COVID. Then, 30% of those who took the placebo got COVID. The LGBTQ who took the drug were twice as likely to get COVID versus those who took the placebo.
   
 ## Numerical Summary for LGBTQ
 ```{r}
@@ -138,4 +138,4 @@ The fishers test tells us that the odds of getting COVID, if you take this drug 
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
 
-Based on the data we just went over, if you are a gal and a DrugUser and you decide to take this drug, your chances of catching COVID are about 0.5. This is because the odds ratio for gals was about 0.5 when rounded and the odds ratio for DrugUser is 0.545. If you are in either of those two groups, I think this drug is beneficial to protect you against catching COVID19. However, this drug is very bad to give to men and especially the LGBTQ community. If you are a man and you take this drug, you are 1 and half times more likely to catch COVID and if you are LGBTQ you are 2 and a half times more likely to catch COVID if you also take this drug. Finally, the DrugUsers data had the highest p-value out of the other groups which tells us that out of all the groups the probability of that observed data occurring again is slightly unlikely but a little more likely in comparison to the other groups. 
+Based on the data we just went over, if you are a gal and a DrugUser and you decide to take this drug, your chances of catching COVID are about 0.5. This is because the odds ratio for gals was about 0.5 when rounded and the odds ratio for DrugUser is 0.545. If you are in either of those two groups, I think this drug is beneficial to protect you against catching COVID19. However, this drug is very bad to give to men and especially the LGBTQ community. If you are a man and you take this drug, you are 1 and half times more likely to catch COVID and if you are LGBTQ you are 2 and a half times more likely to catch COVID if you also take this drug. Finally, the DrugUsers data had the highest p-value out of the other groups which tells us that out of all the groups, the probability of that observed data occurring again is slightly unlikely but a little more likely in comparison to the other groups. 
